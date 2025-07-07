@@ -27,7 +27,7 @@ public class FlutterNativeContactPickerPlugin: FlutterPlugin, MethodCallHandler,
   private var activity: Activity? = null
   private var pendingResult: Result? = null
   private  val PICK_CONTACT = 2015
-  private var selectPhoneNumber: Boolean = false
+  private var selectEmail: Boolean = false
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_native_contact_picker")
@@ -47,17 +47,17 @@ public class FlutterNativeContactPickerPlugin: FlutterPlugin, MethodCallHandler,
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     when (call.method) {
-      "selectContact", "selectPhoneNumber" -> {
+      "selectContact","selectEmail" -> {
         if (pendingResult != null) {
           pendingResult!!.error("multiple_requests", "Cancelled by a second request.", null)
           pendingResult = null
         }
         pendingResult = result
-        selectPhoneNumber = call.method == "selectPhoneNumber"
-
+        selectEmail = call.method == "selectEmail"
+        
         try {
           val intent = Intent(Intent.ACTION_PICK).apply {
-            type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
+            type = ContactsContract.CommonDataKinds.Email.CONTENT_TYPE
           }
           activity?.startActivityForResult(intent, PICK_CONTACT)
         } catch (e: Exception) {
@@ -106,31 +106,31 @@ public class FlutterNativeContactPickerPlugin: FlutterPlugin, MethodCallHandler,
       activity?.contentResolver?.query(
         contactUri,
         arrayOf(
-          ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-          ContactsContract.CommonDataKinds.Phone.NUMBER
+          ContactsContract.CommonDataKinds.Email.DISPLAY_NAME,
+          ContactsContract.CommonDataKinds.Email.ADDRESS
         ),
         null,
         null,
         null
       )?.use { cursor ->
         if (cursor.moveToFirst()) {
-          val nameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
-          val numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+          val nameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DISPLAY_NAME)
+          val emailIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS)
 
-          if (nameIndex == -1 || numberIndex == -1) {
+          if (nameIndex == -1 || emailIndex == -1) {
             pendingResult?.error("invalid_cursor", "Could not find required columns in contact data", null)
             pendingResult = null
             return true
           }
 
           val fullName = cursor.getString(nameIndex) ?: ""
-          val number = cursor.getString(numberIndex) ?: ""
+          val email = cursor.getString(emailIndex) ?: ""
 
           val contact = HashMap<String, Any>()
           contact["fullName"] = fullName
-          contact["phoneNumbers"] = listOf(number)
-          if (selectPhoneNumber) {
-            contact["selectedPhoneNumber"] = number
+          contact["emails"] = listOf(email)
+          if (selectEmail) {
+            contact["selectedEmail"] = email
           }
 
           pendingResult?.success(contact)
@@ -150,13 +150,6 @@ public class FlutterNativeContactPickerPlugin: FlutterPlugin, MethodCallHandler,
   }
 
   companion object {
-
     private const val PICK_CONTACT = 2015
-
-//    @JvmStatic
-//    fun registerWith(registrar: Registrar) {
-//      val channel = MethodChannel(registrar.messenger(), "contact_picker")
-//      channel.setMethodCallHandler(ContactpickerPlugin(registrar, channel))
-//    }
   }
 }

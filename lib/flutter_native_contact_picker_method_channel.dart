@@ -36,16 +36,6 @@ class MethodChannelFlutterNativeContactPicker
   }
 
   @override
-  Future<Contact?> selectPhoneNumber() async {
-    final Map<dynamic, dynamic>? result = await methodChannel
-        .invokeMethod<Map<dynamic, dynamic>?>('selectPhoneNumber');
-    if (result == null) {
-      return null;
-    }
-    return Contact.fromMap(result);
-  }
-
-  @override
   Future<Contact?> selectEmail() async {
     final Map<dynamic, dynamic>? result =
         await methodChannel.invokeMethod<Map<dynamic, dynamic>?>('selectEmail');

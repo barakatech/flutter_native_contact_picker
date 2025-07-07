@@ -14,12 +14,6 @@ class FlutterNativeContactPicker {
     return FlutterNativeContactPickerPlatform.instance.selectContacts();
   }
 
-  /// Selects a specific phone number from a contact.
-  /// Returns the contact information along with the selected phone number.
-  Future<Contact?> selectPhoneNumber() {
-    return FlutterNativeContactPickerPlatform.instance.selectPhoneNumber();
-  }
-
   /// Selects a specific email from a contact.
   /// Returns the contact information along with the selected email.
   Future<Contact?> selectEmail() {

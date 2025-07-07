@@ -33,10 +33,6 @@ abstract class FlutterNativeContactPickerPlatform extends PlatformInterface {
     throw UnimplementedError('selectContacts() has not been implemented.');
   }
 
-  Future<Contact?> selectPhoneNumber() {
-    throw UnimplementedError('selectPhoneNumber() has not been implemented.');
-  }
-
   Future<Contact?> selectEmail() {
     throw UnimplementedError('selectEmail() has not been implemented.');
   }

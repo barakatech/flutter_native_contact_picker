@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   final FlutterNativeContactPicker _contactPicker =
       FlutterNativeContactPicker();
   List<Contact>? _contacts;
-  String? _selectedPhoneNumber;
+  String? _selectedEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                       Contact? contact = await _contactPicker.selectContact();
                       setState(() {
                         _contacts = contact == null ? null : [contact];
-                        _selectedPhoneNumber = null;
+                        _selectedEmail = null;
                       });
                     },
                   ),
@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
                       final contacts = await _contactPicker.selectContacts();
                       setState(() {
                         _contacts = contacts;
-                        _selectedPhoneNumber = null;
+                        _selectedEmail = null;
                       });
                     },
                   ),
@@ -68,19 +68,19 @@ class _MyAppState extends State<MyApp> {
               ),
               const SizedBox(height: 16),
               const Text(
-                'Phone Number Selection',
+                'Email Selection',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               MaterialButton(
                 color: Colors.green,
                 textColor: Colors.white,
-                child: const Text("Select Phone Number"),
+                child: const Text("Select Email"),
                 onPressed: () async {
-                  Contact? contact = await _contactPicker.selectPhoneNumber();
+                  Contact? contact = await _contactPicker.selectEmail();
                   setState(() {
                     _contacts = contact == null ? null : [contact];
-                    _selectedPhoneNumber = contact?.selectedPhoneNumber;
+                    _selectedEmail = contact?.selectedEmail;
                   });
                 },
               ),
@@ -101,16 +101,16 @@ class _MyAppState extends State<MyApp> {
                           contact.fullName ?? 'No name',
                           style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
-                        if (_selectedPhoneNumber != null)
+                        if (_selectedEmail != null)
                           Text(
-                            'Selected number: $_selectedPhoneNumber',
+                            'Selected email: $_selectedEmail',
                             style: const TextStyle(color: Colors.green),
                           ),
-                        ...?contact.phoneNumbers?.map(
+                        ...?contact.emails?.map(
                           (number) => Text(
                             number,
                             style: TextStyle(
-                              color: number == _selectedPhoneNumber
+                              color: number == _selectedEmail
                                   ? Colors.green
                                   : Colors.black54,
                             ),
