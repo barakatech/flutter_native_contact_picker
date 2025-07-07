@@ -1,6 +1,6 @@
 name: baraka_flutter_native_contact_picker
 description: "A Flutter plugin for picking a contact from the address book."
-version: 0.0.10
+version: 1.0.0
 homepage: https://github.com/barakatech/flutter_native_contact_picker
 
 environment:
