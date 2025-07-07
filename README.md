@@ -1,4 +1,4 @@
-# flutter_native_contact_picker
+# baraka_flutter_native_contact_picker
 
 With this plugin a Flutter app can ask its user to select a contact or contacts from their address book, with the option to select specific phone numbers. The information associated with the contacts is returned to the app.
 
@@ -28,24 +28,24 @@ final FlutterNativeContactPicker _contactPicker = FlutterNativeContactPicker();
 // Select a single contact
 Contact? contact = await _contactPicker.selectContact();
 print(contact?.fullName);
-print(contact?.phoneNumbers);
+print(contact?.emails);
 
 // Select multiple contacts (iOS only)
 List<Contact>? contacts = await _contactPicker.selectContacts();
 for (var contact in contacts ?? []) {
   print(contact.fullName);
-  print(contact.phoneNumbers);
+  print(contact.emails);
 }
 ```
 
-### Phone Number Selection
+### Email Selection
 
 ```dart
 // Select a specific phone number from a contact
-Contact? contact = await _contactPicker.selectPhoneNumber();
+Contact? contact = await _contactPicker.selectEmail();
 print(contact?.fullName);
-print(contact?.selectedPhoneNumber); // The specifically selected number
-print(contact?.phoneNumbers); // All available numbers (iOS only)
+print(contact?.selectedEmail); // The specifically selected email
+print(contact?.emails); // All available emails (iOS only)
 ```
 
 ## Contact Model
@@ -55,8 +55,8 @@ The `Contact` class provides the following properties:
 ```dart
 class Contact {
   final String? fullName;           // Contact's full name
-  final List<String>? phoneNumbers; // All phone numbers (iOS: all numbers, Android: selected number only)
-  final String? selectedPhoneNumber; // The specifically selected phone number when using selectPhoneNumber()
+  final List<String>? emails; // All emails (iOS: all emails, Android: selected email only)
+  final String? selectedEmail; // The specifically selected email when using selectEmail()
 }
 ```
 
@@ -65,14 +65,14 @@ class Contact {
 ### iOS
 
 - Supports selecting multiple contacts
-- Returns all phone numbers associated with a contact
-- When using `selectPhoneNumber()`, returns both the selected number and all available numbers
+- Returns all emails associated with a contact
+- When using `selectEmail()`, returns both the selected email and all available emails
 - Uses native CNContactPickerViewController
 
 ### Android
 
 - Single contact selection only
-- When using `selectPhoneNumber()`, returns only the selected phone number
+- When using `selectEmail()`, returns only the selected email
 - No READ_CONTACTS permission required
 - Uses native contact picker intent
 
@@ -95,7 +95,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final FlutterNativeContactPicker _contactPicker = FlutterNativeContactPicker();
   List<Contact>? _contacts;
-  String? _selectedPhoneNumber;
+  String? _selectedEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -116,19 +116,19 @@ class _MyAppState extends State<MyApp> {
                   Contact? contact = await _contactPicker.selectContact();
                   setState(() {
                     _contacts = contact == null ? null : [contact];
-                    _selectedPhoneNumber = null;
+                    _selectedEmail = null;
                   });
                 },
               ),
               MaterialButton(
                 color: Colors.green,
                 textColor: Colors.white,
-                child: const Text("Select Phone Number"),
+                child: const Text("Select Email"),
                 onPressed: () async {
-                  Contact? contact = await _contactPicker.selectPhoneNumber();
+                  Contact? contact = await _contactPicker.selectEmail();
                   setState(() {
                     _contacts = contact == null ? null : [contact];
-                    _selectedPhoneNumber = contact?.selectedPhoneNumber;
+                    _selectedEmail = contact?.selectedEmail;
                   });
                 },
               ),
@@ -137,9 +137,9 @@ class _MyAppState extends State<MyApp> {
                   (contact) => Column(
                     children: [
                       Text(contact.fullName ?? 'No name'),
-                      if (_selectedPhoneNumber != null)
-                        Text('Selected: $_selectedPhoneNumber'),
-                      ...?contact.phoneNumbers?.map((number) => Text(number)),
+                      if (_selectedEmail != null)
+                        Text('Selected: $_selectedEmail'),
+                      ...?contact.emails?.map((email) => Text(email)),
                     ],
                   ),
                 ),

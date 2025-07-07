@@ -7,7 +7,7 @@ public class FlutterNativeContactPickerPlugin: NSObject, FlutterPlugin {
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(
-            name: "flutter_native_contact_picker", binaryMessenger: registrar.messenger())
+            name: "baraka_flutter_native_contact_picker", binaryMessenger: registrar.messenger())
         let instance = FlutterNativeContactPickerPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }

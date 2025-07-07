@@ -1,4 +1,4 @@
-package com.jayesh.flutter_native_contact_picker
+package com.baraka.flutter_native_contact_picker
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel

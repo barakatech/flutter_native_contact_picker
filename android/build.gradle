@@ -1,4 +1,4 @@
-group = "com.jayesh.flutter_native_contact_picker"
+group = "com.baraka.flutter_native_contact_picker"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -26,7 +26,7 @@ apply plugin: "kotlin-android"
 
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace = "com.jayesh.flutter_native_contact_picker"
+        namespace = "com.baraka.flutter_native_contact_picker"
     }
 
     compileSdk = 34

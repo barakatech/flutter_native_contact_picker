@@ -3,15 +3,15 @@
 # Run `pod lib lint flutter_native_contact_picker.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'flutter_native_contact_picker'
-  s.version          = '0.0.1'
+  s.name             = 'baraka_flutter_native_contact_picker'
+  s.version          = '1.0.0'
   s.summary          = 'A Flutter plugin for picking a contact from the address book.'
   s.description      = <<-DESC
 A Flutter plugin for picking a contact from the address book.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/barakatech/flutter_native_contact_picker'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Baraka' => 'alexandre@getbaraka.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'

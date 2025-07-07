@@ -1,4 +1,4 @@
-package com.jayesh.flutter_native_contact_picker
+package com.baraka.flutter_native_contact_picker
 
 import androidx.annotation.NonNull;
 
@@ -30,7 +30,7 @@ public class FlutterNativeContactPickerPlugin: FlutterPlugin, MethodCallHandler,
   private var selectEmail: Boolean = false
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_native_contact_picker")
+    channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "baraka_flutter_native_contact_picker")
     channel.setMethodCallHandler(this);
   }
 

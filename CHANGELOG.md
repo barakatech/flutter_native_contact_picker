@@ -1,3 +1,7 @@
+## 1.0.0
+* Update Readme file.
+* Add email selection mode
+
 ## 0.0.10
 * Update Readme file.
 * Add phone number selection mode, Thanks [@daniil-shumko](https://github.com/jayeshpansheriya/flutter_native_contact_picker/pull/23)

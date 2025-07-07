@@ -1,6 +1,6 @@
-# flutter_native_contact_picker_example
+# baraka_flutter_native_contact_picker_example
 
-Demonstrates how to use the flutter_native_contact_picker plugin.
+Demonstrates how to use the baraka_flutter_native_contact_picker plugin.
 
 ## Getting Started
 

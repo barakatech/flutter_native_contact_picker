@@ -1,26 +1,26 @@
 PODS:
-  - Flutter (1.0.0)
-  - flutter_native_contact_picker (0.0.1):
+  - baraka_flutter_native_contact_picker (1.0.0):
     - Flutter
+  - Flutter (1.0.0)
   - integration_test (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - baraka_flutter_native_contact_picker (from `.symlinks/plugins/baraka_flutter_native_contact_picker/ios`)
   - Flutter (from `Flutter`)
-  - flutter_native_contact_picker (from `.symlinks/plugins/flutter_native_contact_picker/ios`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
 
 EXTERNAL SOURCES:
+  baraka_flutter_native_contact_picker:
+    :path: ".symlinks/plugins/baraka_flutter_native_contact_picker/ios"
   Flutter:
     :path: Flutter
-  flutter_native_contact_picker:
-    :path: ".symlinks/plugins/flutter_native_contact_picker/ios"
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
+  baraka_flutter_native_contact_picker: 54c8117c6ccb7a7c13445d0b645316813ea64628
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_native_contact_picker: 390f08cc44058386ee91499f05360d647dddfc66
   integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796

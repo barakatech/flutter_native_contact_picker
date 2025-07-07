@@ -2,8 +2,7 @@ import Flutter
 import UIKit
 import XCTest
 
-
-@testable import flutter_native_contact_picker
+@testable import baraka_flutter_native_contact_picker
 
 // This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
 //
