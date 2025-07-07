@@ -1,6 +1,6 @@
-# baraka_flutter_native_contact_picker
+# Flutter native contact picker
 
-With this plugin a Flutter app can ask its user to select a contact or contacts from their address book, with the option to select specific phone numbers. The information associated with the contacts is returned to the app.
+With this plugin a Flutter app can ask its user to select a contact or contacts from their address book, with the option to select specific emails. The information associated with the contacts is returned to the app.
 
 This plugin uses the operating system's native UI for selecting contacts and does not require any special permissions from the user, even on Android.
 
@@ -9,12 +9,12 @@ This plugin uses the operating system's native UI for selecting contacts and doe
 - [x] iOS Support
   - Select single contact
   - Select multiple contacts
-  - Select specific phone number from a contact
-  - Returns all phone numbers for selected contacts
+  - Select specific email from a contact
+  - Returns all emails for selected contacts
 
 - [x] Android Support
   - Select single contact
-  - Select specific phone number from a contact
+  - Select specific email from a contact
   - No READ_CONTACTS permission required
 
 ## Usage
