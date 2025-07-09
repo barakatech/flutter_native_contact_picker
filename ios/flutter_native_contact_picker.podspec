@@ -3,7 +3,7 @@
 # Run `pod lib lint flutter_native_contact_picker.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'baraka_flutter_native_contact_picker'
+  s.name             = 'flutter_native_contact_picker'
   s.version          = '1.0.0'
   s.summary          = 'A Flutter plugin for picking a contact from the address book.'
   s.description      = <<-DESC
