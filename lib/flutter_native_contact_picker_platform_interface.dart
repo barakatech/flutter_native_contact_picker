@@ -1,4 +1,4 @@
-import 'package:baraka_flutter_native_contact_picker/model/contact.dart';
+import 'package:flutter_native_contact_picker/model/contact.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'flutter_native_contact_picker_method_channel.dart';

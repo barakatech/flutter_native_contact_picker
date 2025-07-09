@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:baraka_flutter_native_contact_picker/flutter_native_contact_picker.dart';
-import 'package:baraka_flutter_native_contact_picker/model/contact.dart';
+import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
+import 'package:flutter_native_contact_picker/model/contact.dart';
 
 void main() {
   runApp(const MyApp());

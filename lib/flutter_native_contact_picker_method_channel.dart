@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:baraka_flutter_native_contact_picker/model/contact.dart';
+import 'package:flutter_native_contact_picker/model/contact.dart';
 
 import 'flutter_native_contact_picker_platform_interface.dart';
 
